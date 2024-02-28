@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="icon" type="image/png" href="Assets/homePNG.png">
+ <style>
+       /* Body styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Roboto font */
+    overflow: hidden; /* Hide overflow content */
+   
+}
+
+/* Video styling */
+video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Place video behind other content */
+    filter: blur(0); /* Initial no-blur effect */
+    transition: filter 0.3s ease; /* Transition for smooth effect */
+}
+
+
+/* Button styling */
+.centered-button {
+    background-color: white;
+    border: none; /* black border */
+    color: #000; /* black text color */
+    font-size: 30px; /* font size */
+    padding: 20px; /* Adjust padding */
+    cursor: pointer; /* cursor style */
+    transition: background-color 0.3s ease; /* transition effect */
+    border-radius: 50px; /* rounded corners */
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Hover effect */
+.centered-button:hover {
+    background-color: #f0f0f0; /* light gray background on hover */
+}
+
+/* Blurred video when button is hovered */
+.blurry-video {
+    filter: blur(15px); /* Blur effect */
+}
+
+/* Media queries for smaller screens (e.g., phones) */
+@media only screen and (max-width: 400px) {
+    .centered-button {
+        font-size: 20px; /* Adjust font size for smaller screens */
+        padding: 15px; /* Adjust padding */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <video autoplay muted loop id="bgVideo">
+        <source src="Assets/stackBg.mp4" type="video/mp4"> <!-- Replace "your_video.mp4" with your video file -->
+        Your browser does not support the video tag.
+    </video>
+    
+	<div class="center-wrapper">
+		<button class="centered-button" onclick="goToPage2()" onmouseover="toggleBlur(true)" onmouseout="toggleBlur(false)">Explore <i>The Stack</i></button>
+	</div>
+    <script>
+        function toggleBlur(blur) {
+            document.getElementById("bgVideo").classList.toggle("blurry-video", blur);
+        }
+
+        function goToPage2() {
+            window.location.href = "homePg.html";
+        }
+    </script>
+</body>
+</html>
